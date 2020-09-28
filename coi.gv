@@ -1,0 +1,53 @@
+digraph coi {
+    subgraph chart {
+        node [shape=rectangle, style="filled"]
+        lvl1a [fillcolor="#d5e8d4", label="The conflict of interest (COI)\n is reported for investigation."];
+        lvl2a [fillcolor="#d5e8d4", label="Private investigation\n requested"];
+        lvl2b [fillcolor="#d5e8d4", label="Public investigation\n requested"];
+        lvl3a [fillcolor="#d5e8d4", label="Target of investigation name\n and industry that the conflicting\n company or organization operates in \n is disclosed."];
+        lvl3b [fillcolor="#d5e8d4", label="Target of investigation name\n and company or organization\n is disclosed, if deemed necessary\n by remaining team members."];
+        lvl4a [fillcolor="#ffe6cc", label="Private investigation begins"];
+        lvl4b [fillcolor="#ffe6cc", label="Public investigation begins"];
+        lvl5a [fillcolor="#ffe6cc", label="Compliance officer investigates\n relevant areas of the\n company or organization."];
+        lvl5b [fillcolor="#ffe6cc", label="The PrivacyTools team investigates\n whether there is a COI."];
+        lvl6a [fillcolor="#ffe6cc", label="Voting rights are suspended from the\n team member where appropriate until\n the COI is resolved"];
+        lvl7a [fillcolor="#e1d5e7", label="Investigation concludes,\n findings published."];
+        lvl8a [fillcolor="#e1d5e7", label="No COI found."];
+        lvl8b [fillcolor="#e1d5e7", label="COI found."];
+        lvl9a [fillcolor="#dae8fc", label="Voting rights are restored\n to the team member\n after a grace period."];
+        lvl9b [fillcolor="#dae8fc", label="Voting rights not restored,\n final decision made\n about team member."];
+        lvl10a [fillcolor="#dae8fc", label="Issue resolved."];
+
+        lvl1a -> lvl2a;
+        lvl1a -> lvl2b;
+        lvl2a -> lvl3a;
+        lvl2b -> lvl3b;
+        lvl3a -> lvl4a;
+        lvl3b -> lvl4b;
+        lvl4a -> lvl5a;
+        lvl4b -> lvl5b;
+        lvl5a -> lvl6a;
+        lvl5b -> lvl7a;
+        {rank = same; lvl5a; lvl5b;}
+        lvl6a -> lvl7a;
+        lvl7a -> lvl8a;
+        lvl7a -> lvl8b;
+        lvl8a -> lvl9a;
+        lvl8b -> lvl9b;
+        lvl9a -> lvl10a;
+        lvl9b -> lvl10a;
+    }
+
+    subgraph legend {
+        node [shape=plaintext]
+        legend [
+        label=<
+        <table border="0" cellborder="1" cellspacing="0">
+            <tr><td bgcolor="#d5e8d4">Report Phase</td></tr>
+            <tr><td bgcolor="#ffe6cc">Investigation Phase</td></tr>
+            <tr><td bgcolor="#e1d5e7">Verdict</td></tr>
+            <tr><td bgcolor="#dae8fc">Grace period</td></tr>
+        </table>>
+        ];
+    }
+}
